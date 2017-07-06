@@ -1,0 +1,12 @@
+<div class="caption">
+<p>
+<strong>
+'.$donnes[$i]["titre"].'
+</strong>
+</p>
+<p>
+'.$donnes[$i]["prix"]. ' $
+</p>
+</div>'
+
+<td><?php echo $item["quantite"]; ?>

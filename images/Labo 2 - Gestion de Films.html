@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://localhost/PHP-Gestion%20de%20Films%20v1/index.php -->
+<html lang="en" class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Labo 2 - Gestion de Films</title>
+
+    <meta name="author" content="tcs">
+
+    <!--CSS-->
+    <link href="./Labo 2 - Gestion de Films_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Labo 2 - Gestion de Films_files/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="./Labo 2 - Gestion de Films_files/style.css" rel="stylesheet">
+
+    <!--FONT-->
+    <link rel="stylesheet" href="./Labo 2 - Gestion de Films_files/font-awesome.min.css">
+
+    <!--JQUERY-->
+    <script src="./Labo 2 - Gestion de Films_files/jquery.min.js.download"></script>
+    <script src="./Labo 2 - Gestion de Films_files/parsley.min.js.download"></script>
+
+    <!--ANGULAR-->
+    <script src="./Labo 2 - Gestion de Films_files/angular.min.js.download"></script>
+
+    <!--JS-->
+    <script src="./Labo 2 - Gestion de Films_files/bootstrap.min.js.download"></script>
+    <script src="./Labo 2 - Gestion de Films_files/films.js.download"></script>
+</head>
+ 
+ <!--BODY MAIN-->
+<body data-gr-c-s-loaded="true">
+
+   <!--NAVBAR containerMenu-->  
+    <div class="navbar navbar-inverse navbar-fixed-top navbar8" id="containerMenu">
+        
+        <!--LOGO-->
+        <div class="container" id="logo">
+            <div class="navbar-header">
+                <a class="navbar-brand text-hide" href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php">x</a>
+            </div>
+        </div>
+        <!--FIN LOGO-->
+
+        <!--MENU BAR LATERAL LINK-->
+        <div class="pull-left" id="menuVert">
+            <span id="menulink" onclick="openNav()">☰ MENU</span>
+                    
+            <!--MENU NAVBAR-->
+            <div id="mySidenav" class="sidenav">
+                
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                
+                <nav> 
+                    <div class="menu-item">
+                        <h4><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">Filtre par Categorie</a></h4>
+                        <ul>
+                            <li><a class="filter-link" data-filter="all">All</a></li>
+                            <li><a class="filter-link" data-filter="1">Action</a></li>
+                            <li><a class="filter-link" data-filter="2">Drame et répertoire</a></li>
+                            <li><a class="filter-link" data-filter="3">Comédie</a></li>
+                            <li><a class="filter-link" data-filter="4">Horreur</a></li>
+                            <li><a class="filter-link" data-filter="5">Suspense</a></li>
+                            <li><a class="filter-link" data-filter="6">Pour la famile</a></li>
+                            <li><a class="filter-link" data-filter="7">Science</a></li>
+                            <li><a class="filter-link" data-filter="8">Jeuesse</a></li>
+                        </ul>
+                    </div>
+
+                            
+                    <div class="menu-item">
+                        <h4><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">Filtre par prix pas fonctionnel</a></h4>
+                        <ul>
+                            <li><a class="filter-link" data-filter="&gt;5">0$ - 5$</a></li>
+                            <li><a class="filter-link" data-filter="6.99">5$ - 20$</a></li>
+                            <li><a class="filter-link" data-filter="12.95">20$ - 50$</a></li>
+                            <li><a class="filter-link" data-filter="50&gt;">50$ ou plus</a></li>  
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <h4><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">À propos de nous</a></h4>
+                        <ul>
+                            <li><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">Conditions de vente</a></li>
+                            <li><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">Foire aux Questions</a></li>
+                            <li><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">Partenariats et commandites</a></li>
+                            <li><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">Concours</a></li>
+                            <li><a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#">Contactez-nous</a></li>
+                            
+                        </ul>
+                    </div>
+
+                </nav>           
+            </div>
+            <!--Fin MENU NAVBAR-->                   
+        </div> 
+        <!--FIN MENU BAR LATERAL LINK-->
+
+        <!--MENU SESSION LINKS-->
+        <div class="pull-right" id="menuHoriz">
+
+             <!--SESSIONS: SIGNUP , MEMBRE or ADMIN-->
+            
+     <!--ADMIN-->
+    <li class="dropdown">
+        <a class="a" id="btn_gestionAdmin" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-user"></span>
+        Bienvenu(e) ADMIN
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a onclick="openGestionFilm()">Gestion de Livres</a></li>
+          <li><a onclick="openGestionMembre()">Gestion de Membres</a></li>
+        </ul>
+    </li>         
+           <!--CART MODAL LINK-->
+            <a id="modal-cart" href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#modal-container-cart" class="btn" role="button" data-toggle="modal"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a>
+                     
+        </div>
+        <!--FIN MENU SESSION LINKS-->
+
+    </div>
+    <!-- fin NAVBAR containerMenu -->  
+    
+            <!--MODAL CART-->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal fade" id="modal-container-cart" role="dialog" aria-labelledby="cartLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!--MODAL HEADER-->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="cartLabel">Article(s) dans votre panier: </h4>
+                                        </div>
+                                        <!--FIN MODAL HEADER-->
+
+                                        <!--MODAL BODY-->
+                                        <div class="container-fluid modal-body" id="shopping-cart">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="container-fluid">
+                                                        <a id="btnEmpty" class="pull-right btn btn-primary" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=empty">Vider Panier</a>
+                                                        <br>
+                                                    </div>
+                                                    <br>
+                                        
+                                                                                                            <table class="table table-striped  table-hover">
+                                                            <thead>
+                                                                <tr class="active">
+                                                                    <th><strong>Titre</strong></th>
+                                                                    <th><strong>Quantite</strong></th>
+                                                                    <th><strong>Prix Unit</strong></th>
+                                                                    <th><strong></strong></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="danger">
+                                                                    <td colspan="4"><p>Votre panier est vide.</p></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>    
+                                                                                             
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--FIN MODAL BODY-->
+
+                                        <!--MODAL FOOTER-->
+                                        <div class="modal-footer">
+                                            <div class="error">
+                                            </div>
+                                        </div>
+                                        <!--FIN MODAL FOOTER-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--FIN MODAL CART-->
+            
+  <br><br> 
+
+    <!-- BODY containerBody = DIV PAGES-->
+    <div id="containerBody">
+
+        <!--GESTION FILM DIV-->
+        <div class="container" id="gestionFilmDiv">
+            <hr class="prettyline">
+            <div class="row">    
+
+                
+	<div class="container">	
+		<table class="table table-bordered table-hover table-responsive" id="tableFilm">
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Titre</th>
+					<th>Realisateur</th>
+					<th>Description</th>
+					<th>Categorie</th>
+					<th>Durée</th>
+					<th>Prix</th>
+					<th>Image Location</th>
+					<th>Preview Location</th>
+					<th colspan="2">
+						<div class="container-fluid">
+
+						<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerInserer" data-toggle="modal" data-target="#modal-insererFilm">
+							<button class="btn btn-warning btn-md">Insérer Film  <i class="fa fa-check-square"></i></button>
+						</a>
+						
+						</div>
+					</th>                                   
+				</tr><tr>
+			</tr></thead>
+
+	                   
+				<tbody>			
+					<tr id="1" name="film1">
+						
+						<td>
+						1
+						<input type="hidden" name="action" value="1">
+						</td>											
+						<td>Deepwater horizon</td>
+						<td>BERG PETER</td>
+						<td>Mike Williams est électricien sur la plateforme Deepwater Horizon dans le golfe du Mexique. Lorsque la société locataire de la plateforme décide, contre l’avis des techniciens, de la déplacer, ils sont loin de se douter que 5 millions de barils sous leurs pieds sont prêts à exploser. Le courage de Mike et ses collègues suffira-t-il à limiter les dégâts et sauver ce qui peut encore l’être?</td>
+						<td>2</td>
+						<td>180min</td>
+						<td>12.95$</td>
+						<td>images/1.jpg</td>
+						<td>https://youtu.be/leE10vdvkho</td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=1" data-a="1" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=1" data-a="1" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="2" name="film2">
+						
+						<td>
+						2
+						<input type="hidden" name="action" value="2">
+						</td>											
+						<td>Accountant (the)</td>
+						<td>O'CONNOR GAVIN</td>
+						<td>Christian Wolff est plus à l’aise avec les chiffres qu’avec les gens. Sous l’anonymat d’un bureau d’experts-comptables, il travaille pour de dangereuses organisations criminelles. Lorsque le département du Trésor américain s’intéresse de trop près à lui, Christian fait diversion en s’occupant d’un client légitime. Mais tandis que Christian épluche les comptes de l’entreprise, les morts s’accumulent.</td>
+						<td>1</td>
+						<td>120min</td>
+						<td>12.95$</td>
+						<td>images/2.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=2" data-a="2" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=2" data-a="2" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="3" name="film3">
+						
+						<td>
+						3
+						<input type="hidden" name="action" value="3">
+						</td>											
+						<td>Hachi: a dog's tale</td>
+						<td>Hallstrom, lasse</td>
+						<td>N/A</td>
+						<td>6</td>
+						<td>90min</td>
+						<td>6.99$</td>
+						<td>images/3.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=3" data-a="3" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=3" data-a="3" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="4" name="film4">
+						
+						<td>
+						4
+						<input type="hidden" name="action" value="4">
+						</td>											
+						<td>Intouchables</td>
+						<td>Nakache, Olivier/ Toledano, Ér</td>
+						<td>À la suite d'un accident de parapente, Philippe, riche aristocrate, engage comme aide à domicile Driss, un jeune de banlieue tout juste sorti de prison. Bref, la personne la moins adaptée pour l'emploi. Ensemble, ils vont faire cohabiter Vivaldi et Earth Wind and Fire, l'éloquence et la moquerie, les complets et les pantalons de survêtement... Deux univers vont s'enchevêtrer, s'apprivoiser, pour donner naissance à une amitié aussi dingue, drôle et forte qu'inattendue, une relation unique qui fera des étincelles et qui les rendra... Intouchables.</td>
+						<td>3</td>
+						<td>190min</td>
+						<td>6.99$</td>
+						<td>images/4.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=4" data-a="4" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=4" data-a="4" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="5" name="film5">
+						
+						<td>
+						5
+						<input type="hidden" name="action" value="5">
+						</td>											
+						<td>Longest ride</td>
+						<td>Tillman Jr., George</td>
+						<td>Lorsque Luke, un ancien champion de rodéo, rencontre Sophia, une universitaire sur le point de décrocher un emploi de rêve à New York, ils entreprennent un périple sentimental aussi extraordinaire qu'incertain. Tandis que leurs aspirations personnelles incompatibles mettent leur relation naissante à l'épreuve, Luke et Sophia rencontrent Ira, un vieil homme dont les souvenirs de son propre mariage pousseront les jeunes amoureux à se remettre en question et à changer leur existence à jamais.</td>
+						<td>2</td>
+						<td>210min</td>
+						<td>6.99$</td>
+						<td>images/5.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=5" data-a="5" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=5" data-a="5" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="6" name="film6">
+						
+						<td>
+						6
+						<input type="hidden" name="action" value="6">
+						</td>											
+						<td>Whiplash</td>
+						<td>Chazelle, Damien</td>
+						<td>Andrew, 19 ans, rêve de devenir l'un des meilleurs batteurs de jazz de sa génération. Mais la concurrence est rude au conservatoire de Manhattan où il s'entraîne avec acharnement. Il a pour objectif d'intégrer le fleuron des orchestres dirigé par Terence Fletcher, professeur féroce et intraitable. Lorsque celui-ci le repère enfin, Andrew se lance, sous sa direction, dans la quête de l'excellence.</td>
+						<td>2</td>
+						<td>180min</td>
+						<td>6.99$</td>
+						<td>images/6.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=6" data-a="6" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=6" data-a="6" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="7" name="film7">
+						
+						<td>
+						7
+						<input type="hidden" name="action" value="7">
+						</td>											
+						<td>9 le film</td>
+						<td>DIVERS</td>
+						<td>Un homme dont la petite amie vient tout juste de mourir, une jeune femme qui s'est récemment évertuée à convaincre une ancienne connaissance rencontrée lors d'une fête qu'elles ont déjà été des amies très proches et un homme hautain, qui a magasiné des appareils électroniques en insultant au passage le vendeur, assistent tous à la conférence de Marc Gauthier. Celui-ci, prétendu gourou de la communication, propose une nouvelle approche afin d'améliorer les relations entre les êtres humains. Mais, comme s'en rendront compte ces participants, il y aura toujours un décalage important entre la théorie et la pratique. </td>
+						<td>7</td>
+						<td>180min</td>
+						<td>17.99$</td>
+						<td>images/7.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=7" data-a="7" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=7" data-a="7" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="8" name="film8">
+						
+						<td>
+						8
+						<input type="hidden" name="action" value="8">
+						</td>											
+						<td>Jason bourne</td>
+						<td>GREENGRASS PAUL</td>
+						<td>La traque de Jason Bourne par les services secrets américains se poursuit. Des Îles Canaries à Londres en passant par Las Vegas...</td>
+						<td>1</td>
+						<td>160min</td>
+						<td>12.95$</td>
+						<td>images/8.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=8" data-a="8" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=8" data-a="8" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="9" name="film9">
+						
+						<td>
+						9
+						<input type="hidden" name="action" value="9">
+						</td>											
+						<td>Petit prince (le)</td>
+						<td>OSBORNE MARK</td>
+						<td>N/A</td>
+						<td>8</td>
+						<td>120min</td>
+						<td>12.95$</td>
+						<td>images/9.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=9" data-a="9" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=9" data-a="9" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="10" name="film10">
+						
+						<td>
+						10
+						<input type="hidden" name="action" value="10">
+						</td>											
+						<td>Downfall (la chute)</td>
+						<td>Hirschbiegel, Oliver</td>
+						<td>Qualifié de « dramatique, fidèle et poignant » par le San Francisco Chronicle et en nomination pour l'Oscar du Meilleur film étranger, LA CHUTE vous fait pénétrer dans le bunker d'Hitler pendant les derniers jours terribles et déchirants du IIIe Reich. À travers les yeux de Traudi Yunge, la célèbre secrétaire de Hitler, nous assistons à l'écroulement de l'optimisme devant le constat indéniable que la défaite de l'Allemagne est devenue inévitable. Tandis que l'armée russe encercle Berlin, les salles faiblement éclairées du refuge souterrain deviennent un lieu de mise à mort pour le führer et ses plus proches conseillers.</td>
+						<td>2</td>
+						<td>180min</td>
+						<td>6.99$</td>
+						<td>images/10.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=10" data-a="10" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=10" data-a="10" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="25" name="film25">
+						
+						<td>
+						25
+						<input type="hidden" name="action" value="25">
+						</td>											
+						<td>12 years a slave</td>
+						<td>Mcqueen, Steve</td>
+						<td>Les États-Unis, quelques années avant la guerre de Sécession. Solomon Northup, jeune homme noir originaire de l'État de New York, est enlevé et vendu comme esclave. Face à la cruauté d'un propriétaire de plantation de coton, Solomon se bat pour rester en vie et garder sa dignité. Douze ans plus tard, il va croiser un abolitionniste canadien et cette rencontre va changer sa vie... Basé sur une histoire vraie.</td>
+						<td>2</td>
+						<td>160min</td>
+						<td>6.99$</td>
+						<td>images/11.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=25" data-a="25" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=25" data-a="25" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="26" name="film26">
+						
+						<td>
+						26
+						<input type="hidden" name="action" value="26">
+						</td>											
+						<td>Suicide squad</td>
+						<td>AYER DAVID</td>
+						<td>C'est tellement jouissif d'être un salopard! Face à une menace aussi énigmatique qu'invincible, l'agent secret Amanda Waller réunit une armada de crapules de la pire espèce. Armés jusqu'aux dents par le gouvernement, ces super-méchants entreprennent alors une mission-suicide. Jusqu'au moment où ils comprennent qu'ils ont été sacrifiés. Accepteront-ils leur sort ou se rebelleront-ils?</td>
+						<td>1</td>
+						<td>180min</td>
+						<td>12.95$</td>
+						<td>images/12.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=26" data-a="26" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=26" data-a="26" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="27" name="film27">
+						
+						<td>
+						27
+						<input type="hidden" name="action" value="27">
+						</td>											
+						<td>Eat pray love (mange prie aime</td>
+						<td>Murphy, Ryan</td>
+						<td>À la croisée des chemins après un divorce, Liz Gilbert décide de prendre une année sabbatique loin de son travail et, pour une très rare fois, s'éloigne de sa zone de confort, risquant tout ce qu'elle a pour changer de vie. Lors de ses merveilleux et exotiques voyages, Liz Gilbert découvre le plaisir tout simple de bien manger en Italie, le pouvoir de la prière en Inde et, de façon inattendue, la paix intérieure ainsi que l'amour à Bali.</td>
+						<td>2</td>
+						<td>160min</td>
+						<td>6.99$</td>
+						<td>images/13.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=27" data-a="27" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=27" data-a="27" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="28" name="film28">
+						
+						<td>
+						28
+						<input type="hidden" name="action" value="28">
+						</td>											
+						<td>Piano,the(1993)</td>
+						<td>Campion, Jane</td>
+						<td>Au siècle dernier en Nouvelle-Zélande, Ada, mère d'une fillette de neuf ans, s'apprète à suivre son nouveau mari au fin fond du bush. Il accepte de transporter tous ses meubles à l'exception d'un piano qui échoue chez un voisin illettré. Ne pouvant supporter cette perte, Ada accepte le marché que lui propose ce dernier. Regagner son piano touche par touche en se soumettant à ses fantaisies.</td>
+						<td>2</td>
+						<td>180min</td>
+						<td>6.99$</td>
+						<td>images/14.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=28" data-a="28" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=28" data-a="28" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="29" name="film29">
+						
+						<td>
+						29
+						<input type="hidden" name="action" value="29">
+						</td>											
+						<td>Secret life of pets (the)</td>
+						<td>CHENEY YARROW RENAUD CHRIS</td>
+						<td>Que font vos animaux de compagnie quand vous n'êtes pas à la maison? Lorsque leurs maîtres quittent le domicile pour la journée, des animaux de compagnie papotent avec leurs amis, satisfont leurs fringales et organisent des fêtes. Mais quand un terrier chouchouté et son nouveau « coloc » turbulent se perdent dans la jungle urbaine de New York, ils doivent mettre leurs différends de côté afin de survivre à leur dangereux périple pour rentrer à la maison.</td>
+						<td>3</td>
+						<td>90min</td>
+						<td>12.95$</td>
+						<td>images/15.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=29" data-a="29" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=29" data-a="29" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="30" name="film30">
+						
+						<td>
+						30
+						<input type="hidden" name="action" value="30">
+						</td>											
+						<td>Jaws (3-movie collection)</td>
+						<td>Szwarc, Jeannot/Alves, Joe/Sar</td>
+						<td>Les dents de la mer : Deuxième partie. 
+
+                        Les dents de la mer 3. 
+
+                        Les dents de la mer : La revanche.</td>
+						<td>4</td>
+						<td>90min</td>
+						<td>15.99$</td>
+						<td>images/16.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=30" data-a="30" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=30" data-a="30" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="31" name="film31">
+						
+						<td>
+						31
+						<input type="hidden" name="action" value="31">
+						</td>											
+						<td>Get out</td>
+						<td>PEELE JORDAN</td>
+						<td>Couple mixte, Chris et sa petite amie Rose filent le parfait amour. Le moment est donc venu de rencontrer la belle famille, Missy et Dean lors d'un week-end sur leur domaine dans le nord de l'État. Chris commence par penser que l'atmosphère tendue est liée à leur différence de couleur de peau, mais très vite une série d'incidents de plus en plus inquiétants lui permet de découvrir l'inimaginable.</td>
+						<td>4</td>
+						<td>180min</td>
+						<td>22.99$</td>
+						<td>images/17.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=31" data-a="31" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=31" data-a="31" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="32" name="film32">
+						
+						<td>
+						32
+						<input type="hidden" name="action" value="32">
+						</td>											
+						<td>Godfather (the) (3 movie colle</td>
+						<td>Coppola, Francis Ford</td>
+						<td>N/A</td>
+						<td>2</td>
+						<td>120min</td>
+						<td>12.95$</td>
+						<td>images/18.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=32" data-a="32" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=32" data-a="32" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="33" name="film33">
+						
+						<td>
+						33
+						<input type="hidden" name="action" value="33">
+						</td>											
+						<td>Revenant (the)</td>
+						<td>Inarritu, Alejandro Gonzalez</td>
+						<td>N/A</td>
+						<td>2</td>
+						<td>140min</td>
+						<td>12.95$</td>
+						<td>images/19.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=33" data-a="33" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=33" data-a="33" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="34" name="film34">
+						
+						<td>
+						34
+						<input type="hidden" name="action" value="34">
+						</td>											
+						<td>Impossible,the(2012)</td>
+						<td>Bayona, Juan Antonio</td>
+						<td>En vacances en Thaïlande pour célébrer la fête de Noël en famille, Maria, Henry et leurs trois enfants profitent pleinement du soleil et de la plage lorsque, soudainement, un événement tragique vient bouleverser leur vie. À leur insu, un gigantesque tremblement de terre à l'autre bout de l'océan déclenche un énorme tsunami. L'un des désastres naturels les plus dévastateurs de la planète se dirige vers eux... Voici leur émouvante histoire.</td>
+						<td>2</td>
+						<td>120min</td>
+						<td>6.99$</td>
+						<td>images/20.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=34" data-a="34" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=34" data-a="34" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="35" name="film35">
+						
+						<td>
+						35
+						<input type="hidden" name="action" value="35">
+						</td>											
+						<td>Gravity</td>
+						<td>Cuaron, Alfonso</td>
+						<td>Pour sa première expédition à bord d'une navette spatiale, le docteur Ryan Stone accompagne l'astronaute chevronné Matt Kowalsky. Mais cette banale sortie dans l'espace se transforme en catastrophe. Lorsque la navette est pulvérisée, Stone et Kowalsky se retrouvent totalement seuls. Peu à peu, ils cèdent à la panique; à chaque respiration, leurs réserves d'oxygène diminuent. Mais c'est peut-être en s'enfonçant plus loin encore dans l'espace qu'ils trouveront le moyen de rentrer sur Terre... l'espace.</td>
+						<td>5</td>
+						<td>120min</td>
+						<td>6.99$</td>
+						<td>images/21.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=35" data-a="35" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=35" data-a="35" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                   
+				<tbody>			
+					<tr id="36" name="film36">
+						
+						<td>
+						36
+						<input type="hidden" name="action" value="36">
+						</td>											
+						<td>Da vinci code (the)</td>
+						<td>Howard, Ron</td>
+						<td>Accompagnez l'éminent spécialiste de l'étude des symboles Robert Langdon et la cryptographe Sophie Neveu dans leur quête palpitante pour résoudre un meurtre étrange qui les mènera en France, en Angleterre et dans les coulisses d'une mystérieuse organisation séculaire où ils découvriront un secret dissimulé depuis l'époque du Christ.</td>
+						<td>5</td>
+						<td>120min</td>
+						<td>6.99$</td>
+						<td>images/22.jpg</td>
+						<td></td>
+						
+						<td>
+							<div class="container-fluid">
+
+								<a class="btnModifierAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerModifier&amp;code_film=36" data-a="36" data-toggle="modal" data-target="#modal-modifFilm">
+									<button class="btn btn-info btn-md"><i class="fa fa-pencil"></i></button>
+								</a>
+								
+								<a class="btnRemoveAction" href="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divGestionFilms.php?action=confirmerEnlever&amp;code_film=36" data-a="36" data-toggle="modal" data-target="#modal-enleverFilm">
+									<button class="btn btn-danger btn-md"><i class="fa fa-trash-o"></i></button>
+								</a>
+
+							</div>							 
+						</td>									
+					</tr>			
+				</tbody>                               
+				                       
+		</table>			
+	</div>
+		<!-- Fin Lister Modifier -->
+
+<!-- Modal Modifier -->
+<div id="modal-modifFilm" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+		
+    </div>
+  </div>
+</div>
+<!-- Fin Modifier -->
+
+<!-- Modal Effacer -->
+<div id="modal-enleverFilm" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+		
+    </div>
+  </div>
+</div>
+<!-- Fin effacer Modifier -->
+
+
+<!-- Modal Inserer -->
+<div id="modal-insererFilm" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+		
+    </div>
+  </div>
+</div>
+<!-- Fin Inserer -->                
+            </div>
+            <!--FIN ROW-->
+            <hr class="prettyline">
+        </div>
+        <!--FIN GESTION FILM DIV-->
+
+            <!--GESTION MEMBRE DIV-->
+        <div class="container" id="gestionMembreDiv">
+            <hr class="prettyline">
+            <div class="row">    
+
+                
+            </div>
+            <!--FIN ROW-->
+            <hr class="prettyline">
+        </div>
+        <!--FIN GESTION MEMBRE DIV -->
+    
+        <!--LOGIN DIV-->
+        <div class="container" id="logindiv">
+            <hr class="prettyline">
+            <div class="row">    
+
+                
+                <!--Formulaires d'authentification-->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="panel panel-login">
+
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#" id="register-form-link" class="active btn btn-warning" onclick="slideSignUpForm()">Devenir membre</a>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+
+                                                <!--LOGIN FORM-->
+                                                <form id="formLogin" method="POST" role="form" data-toggle="validator" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/divLogin.php" novalidate="">
+                                                    <div class="form-group">
+                                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Nom de utilisateur" value="" require="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Mot de passe" require="">
+                                                    </div>
+                                                    <div class="form-group text-center">
+                                                        <input type="checkbox" tabindex="3" class="" name="remember" id="btn_rememberPass" data-parsley-multiple="remember">
+                                                        <label for="remember">Se rapeller de moi</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-sm-offset-3">
+                                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-primary" value="Connexion">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="text-center">
+                                                                    <a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php" tabindex="5" class="forgot-password">J'ai oublié le mot de passe</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form><!--Fin LOGIN form-->
+                                                
+                                            </div>
+                                        </div>
+                                    </div><!--Fin panel body-->
+
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                <!--Fin Formulaires d'authentification-->
+                
+            </div>
+            <!--FIN ROW-->
+            <hr class="prettyline">
+        </div>
+        <!--FIN LOGIN DIV-->
+
+        <!--SINGUP DIV-->
+        <div class="container" id="signupdiv">
+            <hr class="prettyline">
+            <div class="row">     
+
+                
+                <!--SIGNUP DIV FORM-->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="panel panel-login">
+
+                                    <!--PANEL HEADING-->
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#" class="active btn btn-warning" id="login-form-link" onclick="slideLoginForm()">Connexion</a>
+                                                <h2>Devenir membre: </h2>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <!--FIN PANEL HEADING-->
+
+                                    <!--PANEL BODY-->
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+
+                                                <!--ALERT PANEL-->
+                                                <div class="alert alert-danger" id="alertInputRequired">
+                                                    <a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                                    <strong>Vérifiez la confirmation de mot de passe.</strong>
+                                                </div>
+
+                                                <div class="alert alert-success" id="alertMembreAdded">
+                                                    <a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                                    <strong>Membre enregistré!</strong>
+                                                </div>
+
+                                                <!--FORM-->
+                                                <form id="formSignUp" method="POST" role="form" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/layout/divSignup.php?a=signup" enctype="multipart/form-data" novalidate="">
+                                                    
+                                                    <div class="form-group">
+                                                        <input type="text" name="nom" id="nom" tabindex="1" data-parsley-type="alphanum" class="form-control" placeholder="Nom" value="" data-parsley-required="" required="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="nomUtil" id="nomUtil" tabindex="1" class="form-control" placeholder="Nom de utilisateur" value="" data-parsley-required="" required="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="email" name="courriel" id="courriel" tabindex="1" class="form-control" placeholder="Courriel" value="" data-parsley-type="email" data-parsley-required="" required="" data-parsley-trigger="keyup">
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" name="mp" id="mp" tabindex="2" class="form-control" placeholder="Mot de passe" required="">
+                                                        <br>
+                                                        <input type="password" name="mpconfirm" id="confirm-mp" tabindex="2" class="form-control" placeholder="Confirmer mot de passe" required="" data-parsley-required="" data-parsley-equalto="#mp" data-parsley-trigger="keyup">
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="MAX_FILE_SIZE" value="50000">
+                                                        <input type="file" name="avatar" value="Image">
+                                                        <div class"help-block"="">(Image type <stong>JPG max 50Kb)</stong></div>
+                                                        <br>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-sm-offset-3">
+                                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-primary" value="Envoyer">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Fin PANEL BODY-->
+                                        
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <!--FIN SIGNUP DIV FORM-->
+            </div>
+            <!--FIN ROW-->
+            <hr class="prettyline">
+        </div>
+        <!--FIN SINGUP DIV-->
+
+        <!--DIV ALL PROD-->
+        <div class="container" id="allProd" style="border: solid 3px pink">
+            <hr class="prettyline">
+            <div class="row">   
+                    
+                
+                <!--Container Images-->
+                <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12" id="div-images">
+                    
+                    <div align="center">
+                        <button class="btn btn-default filter-button" data-filter="all">All</button>
+                        <button class="btn btn-default filter-button" data-filter="1">Action</button>
+                        <button class="btn btn-default filter-button" data-filter="2">Drame et répertoire</button>
+                        <button class="btn btn-default filter-button" data-filter="3">Comédie</button>
+                        <button class="btn btn-default filter-button" data-filter="4">Horreur</button>
+                        <button class="btn btn-default filter-button" data-filter="5">Suspense</button>
+                        <button class="btn btn-default filter-button" data-filter="6">Pour la famile</button>
+                        <button class="btn btn-default filter-button" data-filter="7">Science</button>
+                        <button class="btn btn-default filter-button" data-filter="8">Jeuesse</button>
+                    </div>
+                
+                    <div class="alert alert-success" id="alertItemAdded">
+                        <a href="http://localhost/PHP-Gestion%20de%20Films%20v1/index.php#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        <strong>Article ajouté au panier d'achat.</strong>
+                    </div>
+                
+                    
+                    <div class="col-lg-3 product-item filter 2" id="prod0">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=1">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg0" src="./Labo 2 - Gestion de Films_files/1.jpg" class="image imageOverlay img-responsive" alt="img0">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Deepwater horizon</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="1" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 1" id="prod1">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=2">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg1" src="./Labo 2 - Gestion de Films_files/2.jpg" class="image imageOverlay img-responsive" alt="img1">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Accountant (the)</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="2" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 6" id="prod2">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=3">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg2" src="./Labo 2 - Gestion de Films_files/3.jpg" class="image imageOverlay img-responsive" alt="img2">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Hachi: a dog's tale</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="3" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 3" id="prod3">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=4">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg3" src="./Labo 2 - Gestion de Films_files/4.jpg" class="image imageOverlay img-responsive" alt="img3">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Intouchables</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="4" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod4">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=5">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg4" src="./Labo 2 - Gestion de Films_files/5.jpg" class="image imageOverlay img-responsive" alt="img4">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Longest ride</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="5" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod5">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=6">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg5" src="./Labo 2 - Gestion de Films_files/6.jpg" class="image imageOverlay img-responsive" alt="img5">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Whiplash</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="6" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 7" id="prod6">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=7">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg6" src="./Labo 2 - Gestion de Films_files/7.jpg" class="image imageOverlay img-responsive" alt="img6">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>9 le film</strong></p>
+                                        <p id="priceProd">17.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="7" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 1" id="prod7">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=8">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg7" src="./Labo 2 - Gestion de Films_files/8.jpg" class="image imageOverlay img-responsive" alt="img7">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Jason bourne</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="8" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 8" id="prod8">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=9">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg8" src="./Labo 2 - Gestion de Films_files/9.jpg" class="image imageOverlay img-responsive" alt="img8">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Petit prince (le)</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="9" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod9">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=10">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg9" src="./Labo 2 - Gestion de Films_files/10.jpg" class="image imageOverlay img-responsive" alt="img9">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Downfall (la chute)</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="10" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod10">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=25">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg10" src="./Labo 2 - Gestion de Films_files/11.jpg" class="image imageOverlay img-responsive" alt="img10">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>12 years a slave</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="25" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 1" id="prod11">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=26">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg11" src="./Labo 2 - Gestion de Films_files/12.jpg" class="image imageOverlay img-responsive" alt="img11">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Suicide squad</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="26" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod12">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=27">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg12" src="./Labo 2 - Gestion de Films_files/13.jpg" class="image imageOverlay img-responsive" alt="img12">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Eat pray love (mange prie aime</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="27" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod13">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=28">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg13" src="./Labo 2 - Gestion de Films_files/14.jpg" class="image imageOverlay img-responsive" alt="img13">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Piano,the(1993)</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="28" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 3" id="prod14">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=29">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg14" src="./Labo 2 - Gestion de Films_files/15.jpg" class="image imageOverlay img-responsive" alt="img14">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Secret life of pets (the)</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="29" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 4" id="prod15">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=30">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg15" src="./Labo 2 - Gestion de Films_files/16.jpg" class="image imageOverlay img-responsive" alt="img15">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Jaws (3-movie collection)</strong></p>
+                                        <p id="priceProd">15.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="30" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 4" id="prod16">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=31">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg16" src="./Labo 2 - Gestion de Films_files/17.jpg" class="image imageOverlay img-responsive" alt="img16">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Get out</strong></p>
+                                        <p id="priceProd">22.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="31" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod17">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=32">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg17" src="./Labo 2 - Gestion de Films_files/18.jpg" class="image imageOverlay img-responsive" alt="img17">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Godfather (the) (3 movie colle</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="32" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod18">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=33">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg18" src="./Labo 2 - Gestion de Films_files/19.jpg" class="image imageOverlay img-responsive" alt="img18">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Revenant (the)</strong></p>
+                                        <p id="priceProd">12.95 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="33" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 2" id="prod19">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=34">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg19" src="./Labo 2 - Gestion de Films_files/20.jpg" class="image imageOverlay img-responsive" alt="img19">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Impossible,the(2012)</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="34" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 5" id="prod20">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=35">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg20" src="./Labo 2 - Gestion de Films_files/21.jpg" class="image imageOverlay img-responsive" alt="img20">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Gravity</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="35" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>
+                    <div class="col-lg-3 product-item filter 5" id="prod21">
+                                
+                        <form method="GET" action="http://localhost/PHP-Gestion%20de%20Films%20v1/app/controller/cartController.php?action=add&amp;code_film=36">
+                            <div class="thumbnail containerOverlay">                
+                                
+                                <img id="myImg21" src="./Labo 2 - Gestion de Films_files/22.jpg" class="image imageOverlay img-responsive" alt="img21">
+                                
+                                <div class="middle">
+                                    <div class="textOverlay">
+                                        <p id="titleProd"><strong>Da vinci code (the)</strong></p>
+                                        <p id="priceProd">6.99 $</p>                                                                       
+                                    </div>
+                                </div> 
+
+                                <div class="btn-ground text-center"> 
+
+                                    <h4>Quantité:             
+                                    <input id="btnQntd" type="number" class="btn" min="1" max="10" name="quantite" value="1">
+                                    </h4>
+
+                                    <input id="btnAddProd" type="submit" value="Ajouter au Panier" class="btn btn-primary btnAddAction">   
+
+									<button class="btn btn-info" data-toggle="modal" data-target="#modal-preview"><i class="fa fa-eye"></i></button>
+								
+                                    <button class="btn btn-primary" id="36" onclick="detailProduct(this.id)"><i class="fa fa-search"></i> Detaille</button>                                   
+                                </div>  
+
+                            </div>
+                        </form> 
+
+                
+                    </div>                    <!-- Modal Previerw -->
+                        <div id="modal-preview" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                            <h4 class="modal-title">Aperçu</h4>
+                                        </div>
+                                        
+                                        <div class="modal-body">
+                                        
+                                            <video controls="">
+                                                <source src="https://youtu.be/leE10vdvkho" type="video/mp4">
+                                                <source src="https://youtu.be/leE10vdvkho" type="video/ogg">
+                                            </video>    
+                                        
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary close" data-dismiss="modal">Fermer</button>
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Preview -->
+                </div>
+                <!--Fin Container Images-->
+
+            </div>
+            <!--FIN ROW-->
+            <hr class="prettyline">
+        </div>
+        <!--FIN DIV ALL PROD-->
+
+        <!--DIV CART-->
+        <div class="container" id="panier">
+            <hr class="prettyline">
+            <div class="row">
+
+                
+            </div>
+            <!--FIN ROW-->
+            <hr class="prettyline">
+        </div>
+        <!--FIN DIV CART-->  
+
+        <!-- DIV DETAIL PROD-->
+        <div class="container" id="detailProd">
+            <hr class="prettyline">
+            <div class="row">
+
+                
+            </div>
+            <!--FIN ROW-->
+            <hr class="prettyline">
+        </div>
+        <!--FIN DIV DETAIL PROD-->   
+
+    </div>
+    <!--FIN BODY containerBody DIV PAGES-->
+
+    <br><br>      <!--FOOTER-->
+        <div class="navbar-fixed-bottom navbar-inverse" id="myfooterContainer">
+          
+          <p id="myfooter">Thais Cavalcanti e Souza © 2017 - Labo 2 WEB PHP</p>
+
+        </div>
+      <!--FIN FOOTER-->
+
+    
+  <!--FIN BODY MAIN-->
+</body></html>

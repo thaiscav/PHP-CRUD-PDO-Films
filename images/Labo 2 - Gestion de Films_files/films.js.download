@@ -1,0 +1,163 @@
+$(document).ready(function() {
+
+    /* PRODUCT FILTER */
+    $(".filter-button").click(function() {
+        var value = $(this).attr('data-filter');
+
+        if (value == "all") {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        } else {
+            //$('.filter[filter-item="'+value+'"]').removeClass('hidden');
+            //$(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.' + value).hide('3000');
+            $('.filter').filter('.' + value).show('3000');
+
+        }
+    });
+
+    if ($(".filter-button").removeClass("active")) {
+        $(this).removeClass("active");
+    }
+    $(this).addClass("active");
+
+    /* PRODUCT FILTER LINK */
+    $(".filter-link").click(function() {
+        var value = $(this).attr('data-filter');
+
+        if (value == "all") {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        } else {
+            //$('.filter[filter-item="'+value+'"]').removeClass('hidden');
+            //$(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.' + value).hide('3000');
+            $('.filter').filter('.' + value).show('3000');
+
+        }
+    });
+
+    if ($(".filter-button").removeClass("active")) {
+        $(this).removeClass("active");
+    }
+    $(this).addClass("active");
+
+    /* MODAL LOGIN */
+
+    // click sur bouton d'identification/ Enregistrement
+    $('#login-form-link').click(function(e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+
+    $('#register-form-link').click(function(e) {;
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+
+    /*Form validation - TEST APAGAR
+    $('#formSignUp').ajaxForm(function() {
+        alert("VALIDATE HERE");
+    });
+    */
+    //document.getElementById("myP").style.visibility = "hidden";
+
+    $('#formSignUp').parsley();
+    $('#formLogin').parsley();
+
+    /*PANIER ALERT*/
+    $('.btnAddAction').click(function(e) {
+        //alert("1 article ajouté au panier d'achat");
+        $("#alertItemAdded").show();
+    });
+
+    /*MODAL PANIER*/
+
+    /*MEMBRE ENREGISTRË ALERT*/
+
+
+
+
+}); //fin doc ready
+
+
+/* NAVBAR */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+/* TABLE DE FILMS */
+
+function detailProduct(item) {
+
+    $("#allProd").hide();
+    $("#detailProd").show();
+
+}
+
+/*LOGIN DIV*/
+function openLoginForm() {
+
+    $("#allProd").hide();
+    $("#logindiv").show();
+}
+
+/*LOGIN SLIDE PANEL DIV*/
+function slideLoginForm() {
+
+    $("#signupdiv").hide();
+    $("#logindiv").show();
+}
+
+function slideSignUpForm() {
+
+    $("#logindiv").hide();
+    $("#signupdiv").show();
+}
+
+/*GESTION PANEL DIV*/
+
+function envoyer(elem) {
+    document.getElementById(elem).submit();
+}
+
+function montrer(elem) {
+    document.getElementById(elem).style.display = 'block';
+}
+
+function cacher(elem) {
+    document.getElementById(elem).style.display = 'none';
+}
+
+
+function openGestionFilm() {
+
+    $("#logindiv").hide();
+    $("#signupdiv").hide();
+    $("#allProd").hide();
+    $("#gestionFilmDiv").show();
+}
+
+function openGestionMembre() {
+
+    $("#logindiv").hide();
+    $("#signupdiv").hide();
+    $("#allProd").hide();
+    $("#gestionFilmDiv").show();
+}
+
+function openConfigMembre() {
+
+    //$("#gestionDiv").hide();
+    $("#configMembre").show();
+}
